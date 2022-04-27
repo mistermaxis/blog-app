@@ -13,6 +13,9 @@
 !/log/.keep
 !/tmp/.keep
 
+/tmp/cache/bootsnap
+/tmp/cache/bootsnap/*
+
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/
