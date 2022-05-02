@@ -8,13 +8,10 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
+log/*
+tmp/*
 !/log/.keep
 !/tmp/.keep
-
-/tmp/cache/bootsnap
-/tmp/cache/bootsnap/*
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
