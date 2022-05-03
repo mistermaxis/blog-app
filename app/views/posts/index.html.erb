@@ -1,1 +1,30 @@
-<h1>List of Posts for User <%= @user_id %></h1>
+<div class="container p-3 flex flex-col gap-y-4">
+  <div class="flex gap-x-4">
+    <div class="w-24 border-black border-4">
+      <%= image_tag("img.png") %>
+    </div>
+    <div class="flex justify-between w-full px-5 py-2 border-black border-4">
+      <h1 class="text-4xl">
+        <%= @user.name %>
+      </h1>
+      <span class="text-sm self-end">Number of posts: <%= @user.posts_counter || 0 %></span>
+    </div>
+  </div>
+  <div>
+    <% @user.posts.each do |post| %>
+      <div class="flex flex-col w-full p-3 border-black border-4">
+        <h1 class="text-xl pb-4"><%= link_to "Post# #{post.id}", user_post_path(@user.id, post.id) %></h1>
+        <span><%= post.text %></span>
+        <div class="text-sm self-end">
+          <span>Comments: <%= post.comments_counter || 0 %></span>
+          <span>, Likes: <%= post.likes_counter || 0 %></span>
+        </div>
+      </div>
+      <div class="container p-3 flex flex-col border-black border-4">
+        <% post.recent_comments.each do |comment| %>
+        <p><%= comment.author.name %>: <%= comment.text %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
