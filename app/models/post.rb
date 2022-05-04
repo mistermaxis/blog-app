@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   after_save :increase_post_counter
 
   def increase_post_counter
-    user = User.find(user_id)
+    user = User.find(author_id)
     user.increment!(:posts_counter)
   end
 

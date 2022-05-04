@@ -1,1 +1,13 @@
-<h1>List of Users</h1>
+<div class="container p-3 flex flex-col gap-y-4">
+  <% @users.each do |user| %>
+  <div class="flex gap-x-4">
+    <div class="w-24 border-black border-4">
+      <%= image_tag("img.png") %>
+    </div>
+    <div class="flex justify-between w-full px-5 py-2 border-black border-4">
+      <h1 class="text-4xl"><%= link_to user.name, user_path(user.id) %></h1>
+      <span class="text-sm self-end">Number of posts: <%= user.posts_counter || 0 %></span>
+    </div>
+  </div>
+  <% end %>
+</div>
