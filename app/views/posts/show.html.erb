@@ -8,7 +8,8 @@
           <span>, Likes: <%= @post.likes_counter || 0 %></span>
         </div>
       </div>
-      <span><%= @post.text %></span>
+      <p><%= @post.text %></p>
+      <%= button_to 'Like this post', user_post_likes_path(@post.author, @post), method: :post %>
     </div>
     <div class="container p-3 flex flex-col border-black border-4">
       <% @post.comments.each do |comment| %>
@@ -17,5 +18,8 @@
         </p>
         <% end %>
     </div>
+  </div>
+  <div class="self-center">
+    <%= render 'comments/form' %>
   </div>
 </div>
