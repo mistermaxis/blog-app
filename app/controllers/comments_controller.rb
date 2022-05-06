@@ -5,11 +5,11 @@ class CommentsController < ApplicationController
     @comment.author = current_user
     @comment.post = @post
 
-    if @comment.save
-      flash[:notice] = 'Comment created!'
-      redirect_to user_post_path(@post.author, @post)
-    else
-      flash[:notice] = 'Comment was not created.'
-    end
+    flash[:notice] = if @comment.save
+                       'Comment created!'
+                     else
+                       'Comment was not created.'
+                     end
+    redirect_to user_post_path(@post.author, @post)
   end
 end
