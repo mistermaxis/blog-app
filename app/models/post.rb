@@ -4,6 +4,10 @@ class Post < ApplicationRecord
   has_many :likes, class_name: 'Like', foreign_key: 'post_id'
   after_save :increase_post_counter
 
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   def increase_post_counter
     user = User.find(author_id)
     user.increment!(:posts_counter)
