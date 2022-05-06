@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   author = User.new(name: 'Test', photo: 'photo.jpg', bio: 'Test bio.')
-  
+
   subject { Post.new(author: author, title: 'Test', text: 'Test Post') }
 
   before(:each) { subject.save }

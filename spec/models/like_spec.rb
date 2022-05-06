@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
   author = User.first
-  
+
   post = Post.first
 
-  subject { Like.new(author: author, post: post) } 
+  subject { Like.new(author: author, post: post) }
 
   before(:each) { subject.save }
 
