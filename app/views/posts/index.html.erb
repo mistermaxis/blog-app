@@ -1,4 +1,7 @@
 <div class="container p-3 flex flex-col gap-y-4">
+  <% flash.each do |name, msg| -%>
+    <div class="self-center"><%= msg %></div>
+  <% end -%>
   <div class="flex gap-x-4">
     <div class="w-24 border-black border-4">
       <%= image_tag("img.png") %>
@@ -21,13 +24,13 @@
         </div>
       </div>
       <div class="container p-3 flex flex-col border-black border-4">
-        <% post.recent_comments.each do |comment| %>
+        <% post.recent_comments.includes([:author]).each do |comment| %>
         <p><%= comment.author.name %>: <%= comment.text %></p>
         <% end %>
       </div>
     <% end %>
   </div>
-  <div>
-    <%= link_to 'New Post', new_user_post_path(@current_user) %>
+  <div class="flex justify-center">
+    <%= link_to 'New Post', new_user_post_path(@current_user), class: 'border-black border-4 px-2 py-1' %>
   </div>
 </div>
