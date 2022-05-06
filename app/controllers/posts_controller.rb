@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       redirect_to user_posts_path(@user), notice: 'Post was successfully created.'
     else
       flash[:notice] = 'Something went wrong!'
-      render 'posts/index'
+      redirect_to user_posts_path(@user)
     end
   end
 end
