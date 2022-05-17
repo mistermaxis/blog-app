@@ -11,13 +11,15 @@
   </head>
 
   <body>
-    <div class="container mx-auto">
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
+    <div class="container mx-auto flex flex-col items-center">
+      <div class="flex justify-center">
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+      </div>
       <%= yield %>
     </div>
   </body>
