@@ -1,0 +1,30 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "w-3/4" }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field w-full flex p-2">
+    <%= f.text_field :name, placeholder: "Name", class: "w-full" %>
+  </div>
+
+  <div class="field w-full flex p-2">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "w-full" %>
+  </div>
+
+  <div class="field w-full flex flex-col p-2">
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "w-full" %>
+  </div>
+
+  <div class="field w-full flex p-2">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "w-full" %>
+  </div>
+
+  <div class="actions w-full flex border-black border-2 flex justify-center">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
