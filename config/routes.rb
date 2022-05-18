@@ -7,9 +7,13 @@ Rails.application.routes.draw do
   root "users#index"
 
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:new, :index, :show, :create] do
-      resources :comments, only: [:create]
+    resources :posts, only: [:new, :index, :show, :create, :destroy] do
+      resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create]
     end
   end
+
+  get '/users/:user_id/posts/:post_id/destroy_comment', to: 'comments#destroy', as: 'destroy_comment'
+  get '/users/:user_id/posts/:post_id/destroy_post', to: 'posts#destroy', as: 'destroy_post'
+
 end

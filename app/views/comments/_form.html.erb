@@ -1,5 +1,5 @@
 <h2>Write a new comment:</h2>
-<%= form_with model: [@user, @post, @post.comments.build], url: user_post_comments_path(1, 3) do |form| %>
+<%= form_with model: [@user, @post, @post.comments.build], url: user_post_comments_path(current_user, @post.id) do |form| %>
   <p>
     <%= form.label :text %><br>
     <%= form.text_area :text %>
