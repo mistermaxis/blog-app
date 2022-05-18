@@ -12,15 +12,15 @@
       <%= button_to 'Like this post', user_post_likes_path(@post.author, @post), method: :post, form_class: 'button_to flex justify-end' %>
     </div>
     <% unless @post.comments.empty? %>
-      <div class="container p-3 flex flex-col border-black border-4">
+      <div class="container p-3 flex justify-between border-black border-4">
         <% @post.comments.includes([:author]).each do |comment| %>
           <p>
             <%= comment.author.name %>: <%= comment.text %>
-             <% if can? :destroy, comment %>
-              <%= link_to 'Delete', destroy_comment_path(current_user.id, @post.id, comment.id), method: :delete, data: {confirm: "Are you sure"}  %>
-            <% end %>
           </p>
+          <% if can? :destroy, comment %>
+              <%= link_to 'Delete', destroy_comment_path(current_user.id, @post.id, comment.id), data: {confirm: "Are you sure"}  %>
           <% end %>
+        <% end %>
       </div>
     <% end %>
   </div>
