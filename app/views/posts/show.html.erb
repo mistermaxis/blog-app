@@ -9,7 +9,12 @@
         </div>
       </div>
       <p><%= @post.text %></p>
-      <%= button_to 'Like this post', user_post_likes_path(@post.author, @post), method: :post, form_class: 'button_to flex justify-end' %>
+      <div class="self-end">
+        <%= button_to 'Like this post', user_post_likes_path(@post.author, @post), method: :post, form_class: 'button_to' %>
+        <% if can? :destroy, @post %>
+          <%= link_to 'Delete Post', destroy_post_path(current_user.id, @post.id, data: {confirm: 'Are you sure?'})  %>
+        <% end %>
+      </div>
     </div>
     <% unless @post.comments.empty? %>
       <div class="container p-3 flex justify-between border-black border-4">

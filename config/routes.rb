@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/users/:user_id/posts/:post_id/destroy_comment', to: 'comments#destroy', as: 'destroy_comment' # destroy
-  post '/users/:user_id/posts/:post_id/destroy_comment', to: 'comments#destroy' # destroy
+  get '/users/:user_id/posts/:post_id/destroy_comment', to: 'comments#destroy', as: 'destroy_comment'
+  get '/users/:user_id/posts/:post_id/destroy_post', to: 'posts#destroy', as: 'destroy_post'
 
 end

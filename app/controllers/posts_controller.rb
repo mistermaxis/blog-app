@@ -22,8 +22,18 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to user_posts_path(@user), notice: 'Post was successfully created.'
     else
-      flash[:notice] = 'Something went wrong!'
-      redirect_to user_posts_path(@user)
+      redirect_to user_posts_path(@user), notice: 'Something went wrong!'
     end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = Post.find_by_id(params[:post_id])
+    if @post.destroy
+      flash[:success] = 'Post deleted successfully!'
+    else
+      flash[:error] = 'Something went wrong, please try it again!'
+    end
+    redirect_to user_posts_path(@user)
   end
 end
