@@ -17,14 +17,16 @@
       </div>
     </div>
     <% unless @post.comments.empty? %>
-      <div class="container p-3 flex justify-between border-black border-4">
+      <div class="container p-3 flex flex-col border-black border-4">
         <% @post.comments.includes([:author]).each do |comment| %>
-          <p>
+          <div class="flex justify-between">
+            <p>
             <%= comment.author.name %>: <%= comment.text %>
           </p>
           <% if can? :destroy, comment %>
               <%= link_to 'Delete', destroy_comment_path(current_user.id, @post.id, comment.id), data: {confirm: "Are you sure"}  %>
           <% end %>
+          </div>
         <% end %>
       </div>
     <% end %>
