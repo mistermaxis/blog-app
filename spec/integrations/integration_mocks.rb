@@ -3,7 +3,7 @@ require 'user'
 module Mocks
   def create_users
     names = [
-      { name: 'Joh', bio: "I am John", posts_counter: 5, email: 'john@mail.com', role: 'user' },
+      { name: 'John', bio: "I am John", posts_counter: 5, email: 'john@mail.com', role: 'user' },
       { name: 'Jane', bio: "I am Jane", posts_counter: 5, email: 'jane@mail.com', role: 'user' }
     ]
     (0..1).each do |i|
@@ -35,3 +35,4 @@ module Mocks
       end
     end
   end
+end
