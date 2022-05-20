@@ -31,7 +31,7 @@ module Mocks
       (0..1).each do |j|
         Like.create(author_id: users[j].id, post_id: post.id)
         Comment.create(author_id: users[j].id, post_id: post.id,
-                       text: "I'm #{users[j].name} and I'm commenting gibberish here.")
+                       text: "I'm #{users[j].name} and I am commenting gibberish here.")
       end
     end
   end
