@@ -39,7 +39,7 @@ RSpec.describe 'user index view', type: :feature do
     it "Redirected to user's show page" do
       expect(page).to have_content 'John'
       click_link('John')
-      expect(page).to have_content "I am John"
+      expect(page).to have_content 'I am John'
     end
   end
 end

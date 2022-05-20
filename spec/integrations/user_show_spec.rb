@@ -25,7 +25,7 @@ RSpec.describe 'user show view', type: :feature do
     end
 
     it 'Should display number of posts by its user' do
-      expect(page).to have_content 'Number of posts: 10'
+      expect(page).to have_content 'Number of posts: 5'
     end
 
     it 'Should display user\'s bio' do
@@ -47,4 +47,4 @@ RSpec.describe 'user show view', type: :feature do
       expect(page).to have_current_path "/users/#{@users[0].id}/posts"
     end
   end
-end 
+end
